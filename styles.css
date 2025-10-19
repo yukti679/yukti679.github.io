@@ -321,13 +321,6 @@ body {
        text-align: center;
        position: relative;
     }   
-    .styled-image {
-        background: white;
-        padding: 10px; /* thin white "border" */
-        border-radius: 6px;
-        width: 99%;
-        height: 100%; /* let content determine height */
-    }
 }
 
 #Singing {
