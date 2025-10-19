@@ -17,11 +17,9 @@
             <span class="tab-label">Experience</span>
             <button type="button" class="tab-caret" aria-label="Open Experience menu" onclick="event.stopPropagation(); toggleTabDropdown(this)">▾</button>
             <div class="tab-dropdown" id="menu-experience" role="menu" aria-label="Experience menu">
-                <button type="button" role="menuitem" onclick="openTabFromMenu(event, 'Resumé', this)">Resumé</button>
-                <button type="button" role="menuitem" onclick="openTabFromMenu(event, 'Clubs', this)">Clubs</button>
-                <button type="button" role="menuitem" onclick="openTabFromMenu(event, 'Volunteering', this)">Volunteering</button>
+                <button type="button" role="menuitem" onclick="openTabFromMenu(event, 'Extracurriculars', this)">Extracurriculars</button>
                 <button type="button" role="menuitem" onclick="openTabFromMenu(event, 'Awards', this)">Awards</button>
-                <button type="button" role="menuitem" onclick="openTabFromMenu(event, 'Certifications', this)">Certifications</button>
+                <button type="button" role="menuitem" onclick="openTabFromMenu(event, 'Volunteering', this)">Volunteering</button>
             </div>
         </div>
 
@@ -67,22 +65,47 @@
     </div>
 
     <!-- Experience sub-items as separate tabcontent -->
-    <div id="Resumé" class="tabcontent">
-        <div class="resume-header">
-            <h1>Resumé</h1>
-        </div>
-        <iframe src="images/yukti_avala_resume.jpg" style="width: 100%; height: 100vh; border: none;"></iframe>
-    </div>
 
-    <div id="Clubs" class="tabcontent">
-        <div class="clubs-header">
-            <h1>Clubs</h1>
+    <div id="Extracurriculars" class="tabcontent">
+        <div class="extracurriculars-header">
+            <h1>Extracurriculars</h1>
         </div>
-    </div>
-
-    <div id="Volunteering" class="tabcontent">
-        <div class="volunteering-header">
-            <h1>Volunteering</h1>
+        <div class="deca">
+            <img src="images/Deca.jpg" alt="Clubs" class="floated-image">
+            <h2>
+                I am a member of DECA, a business and marketing club that prepares students for careers in marketing, finance, hospitality, and management.
+                In DECA, I have had the opportunity to participate in the Business Law and Ethics Team Decision Making event and the Business Finance Series individuals event.
+                As a national level qualifier, some of the competitions I have participated in include the DECA State Competition (SCDC) and the DECA International Career Development Conference (ICDC).
+                I also took part in the Quizbowl competition at SCDC in 2024. Through these competitions, I have learned how to analyze business scenarios, develop marketing strategies, and present my ideas effectively.
+                I also hold a leadership position in my school's chapter, where I help organize events and mentor over 150 members.
+            </h2>
+        </div>
+        <div class="food4good">
+            <img src="images/Food4good.png" alt="Food4Good" class="floated-image">
+            <h2>
+                I am also a president of Food4Good. This is a community service club in which
+                members make homemade food that we donate to local shelters. As president, I am responsible
+                for planning meetings, coordinating with shelters, and organizing food drop-offs.
+            </h2>
+            <h2>Instagram: @hhsfood4good</h2>
+        </div>
+        <div class="NHS">
+            <img src="images/NHS.jpg" alt="NHS" class="floated-image">
+            <h2>
+                Additionally, I am a member of the National Honor Society (NHS), which recognizes students who excel in academics, leadership, service, and character.
+                As a member of NHS, I participate in community service events that have helped me develop my leadership skills and give back to my community. For example, I am
+                involved in the trick-or-treat for canned goods event, where we collect canned food donations for the Holliston Food Pantry during Halloween.
+                I am also currently doing a leadership project where I will collect books, sell them for low prices, and donate the money to the Malala Fund,
+                a non-profit organization focused on literacy and education for women.
+            </h2>
+        </div>
+        <div class="tennis">
+            <img src="images/Tennis.jpg" alt="Tennis" class="floated-image">
+            <h2>
+                I have also been a member of the varsity tennis team at my school since 9th grade. 
+                I have been playing tennis for several years and enjoy the competitive nature of the sport.
+                Being part of the team has taught me the importance of teamwork, discipline, and perseverance.
+            </h2>
         </div>
     </div>
 
@@ -90,11 +113,54 @@
         <div class="awards-header">
             <h1>Awards</h1>
         </div>
+        <div class="awards-list">
+            <h2>
+                <ul>
+                    <li>DECA SCDC State Qualifier - Business Law and Ethics Team Decision Making (2024)</li>
+                    <li>DECA ICDC National Qualifier - Business Law and Ethics Team Decision Making (2024)</li>
+                    <li>SAMPADA Level 1 Singing Exam - Distinction (2025)</li>
+                    <li>Holliston High School Academic Excellence Awards</li>
+                        <ul>
+                            <li>English (2024)</li>
+                            <li>French (2024)</li>
+                            <li>History (2024)</li>
+                            <li>Chorus (2025)</li>
+                            <li>Physics (2025)</li>
+                        </ul>
+                    <li>NCWIT Massachusetts Affiliate Honorable Mention (2025)</li>
+                    <li>School Recognition Award for Outstanding Academic Achievement from College Board (2025)</li>
+                        <ul>
+                            <li>5 on AP Computer Science A (2025)</li>
+                            <li>5 on AP Physics 1: Mechanics (2025)</li>
+                            <li>1520 on SAT (2024)</li>
+                            <li>1470 on PSAT (2025)</li>
+                        </ul>
+                </ul>
+            </h2>
+        </div>
     </div>
 
-    <div id="Certifications" class="tabcontent">
-        <div class="certifications-header">
-            <h1>Certifications</h1>
+    <div id="Volunteering" class="tabcontent">
+        <div class="volunteering-header">
+            <h1>Volunteering</h1>
+        </div>
+        <div class = "volunteering-list">
+            <h2>
+                <ul>
+                    <li>Volunteered for Food4Good for over 20 hours</li>
+                    <li>Volunteered for Leo's Club (A Branch of the Holliston Lions Club) for 24 hours</li>
+                    <li>Volunteered at SchoolHouse as an SAT Tutor for 53 hours</li>
+                        <ul>
+                            <li>November 2024 SAT for Reading & Writing</li>
+                            <li>December 2024 SAT for Reading & Writing</li>
+                            <li>March 2025 SAT for Math</li>
+                            <li>August 2025 SAT for Reading & Writing</li>
+                            <li>Certified to tutor Algebra 2</li>
+                            <li>Certified to tutor Computer Science</li>
+                            <li>Certified to tutor Physics</li>
+                        </ul>
+                </ul>
+            </h2>
         </div>
     </div>
 
@@ -117,11 +183,58 @@
         <div class="dance-header">
             <h1>Dance</h1>
         </div>
+        <img src="images/Dance.jpg" alt="Dance" class="floated-image">
+        <div class="dance-description">
+            <h2> 
+                I have been learning the Indian classical dance form of Bharatanatyam for 11 years.
+                I have performed at various competitions such as the Ekal Dance Deewane and NEMA dance competition.
+                During Hindhu festivals, I also perform at temples and community events. After 7 years of traing, I completed
+                my Salangai Pooja (ankle bells ceremony) in 2021.
+            </h2>
+        </div>
+        <div class="dance-why">
+            <h2>
+                Dance has always been a way for me to express myself creatively and connect with my cultural roots.
+                It has taught me discipline, perseverance, and the importance of hard work. Through dance, I have also
+                had the opportunity to meet new people and make lifelong friends who share my passion for this art form.
+            </h2>
+        </div>
+        <div class="dance-goals">
+            <h2>
+                In the future, I hope to continue learning and growing as a dancer, exploring new styles and techniques,
+                and sharing my love of dance with others. I believe that dance has the power to bring people together,
+                transcend cultural boundaries, and inspire positive change in the world.
+            </h2>
+        </div>
     </div>
 
     <div id="Singing" class="tabcontent">
         <div class="singing-header">
             <h1>Singing</h1>
+        </div>
+        <img src="images/Singing.webp" alt="Singing" class="floated-image">
+        <div class="singing-description">
+            <h2> 
+                I have been learning the Carnatic form of singing (Sangeetham) for 11 years.
+                I have knowledge in the Sarali Swaras, Janta Swaras, Dattu Swaras, Alankaras, Geethams,
+                Varanams, Swarajathis, Swarapallavis, and Keerthanams. I have also passed the level 1 exam
+                conducted by SAMPADA, which is affiliated with Potti Sri Ramulu Telugu University in India, with distinction.
+            </h2>
+        </div>
+        <div class="chorus">
+            <h2>
+                I have also been a member of my school's chorus for 4 years, where I have had the opportunity to
+                perform at various school events and concerts. These include the winter, spring, and Pops concerts.
+                During the winter and spring concerts we sing more classical pieces and during the Pops concert we
+                sing Pop songs. 
+            </h2>
+        </div>
+        <div class="singing-goals">
+            <h2>
+                Singing has been a way for me to cope with stress during the busy school year.
+                Whenever I feel overwhelmed with schoolwork, I like to take a break and practice singing.
+                It helps me relax and refocus, allowing me to approach my studies with a clearer mind
+            </h2>
         </div>
     </div>
 
@@ -129,11 +242,24 @@
         <div class="about-header">
             <h1>About</h1>
         </div>
+        <div class="about-description">
+            <img src="images/Me.PNG" alt="Yukti Avala" class="styled-image">
+            <h2>
+                Welcome to my personal website! My name is Yukti Avala, and I am a high school junior with a passion for architecture, computer science, business, and the arts.
+                I aspire to major in architecture and minor in computer science in college.
+                This website serves as a platform for me to showcase my skills, experiences, and interests.
+                Here, you can find information about my academic achievements, extracurricular activities, hobbies, and more.
+                I hope you enjoy exploring my website and learning more about me!
+            </h2>
+        </div>
     </div>
 
     <div id="Contact" class="tabcontent">
         <div class="contact-header">
             <h1>Contact</h1>
+        </div>
+        <div class="contact-description">
+            <h2>LinkedIn: https://www.linkedin.com/in/yukti-avala-86703432b/</h2>
         </div>
     </div>
 

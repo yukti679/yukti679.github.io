@@ -20,7 +20,10 @@ function openTab(evt, tabName) {
 
 // Open the default tab when the page loads
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("defaultOpen").click();
+    // If a tab is open via URL hash (not implemented here but good practice), don't open default
+    if (!window.location.hash) {
+        document.getElementById("defaultOpen").click();
+    }
 });
 
 // Toggle an attached dropdown for a tab button
@@ -32,28 +35,40 @@ function toggleTabDropdown(el) {
     var menu = item.querySelector('.tab-dropdown');
     if (!menu) return;
 
-    // the actual tab button
-    var tabBtn = item.querySelector('.tablinks');
-
     // close other dropdowns
     document.querySelectorAll('.tab-dropdown').forEach(function(d){
         if (d !== menu) d.classList.remove('show');
+        
+        // Also ensure the aria-expanded is set to false on the toggle button of the closed dropdown
+        var closedItem = d.closest('.tab-item');
+        if (closedItem) {
+            // Target the .tab-caret button to remove the attribute
+            var closedToggle = closedItem.querySelector('.tab-caret');
+            if (closedToggle) closedToggle.setAttribute('aria-expanded', 'false');
+        }
     });
 
     // toggle this one
     var isShown = menu.classList.toggle('show');
-    if (tabBtn) tabBtn.setAttribute('aria-expanded', isShown ? 'true' : 'false');
+    // Set aria-expanded on the button that was clicked (el is the tab-caret)
+    el.setAttribute('aria-expanded', isShown ? 'true' : 'false');
 }
 
-// Close dropdowns when clicking outside
+// Close dropdowns when clicking outside (FIXED)
 window.addEventListener('click', function(e){
-    // if click is on a tab button, ignore (we handle via onclick on button)
-    if (e.target.matches('.tablinks')) return;
-
-    // close any open dropdowns
+    // If the click target is inside a tab-dropdown, we return, 
+    // as clicks there are handled by the menu buttons (openTabFromMenu).
+    if (e.target.closest('.tab-dropdown') || e.target.closest('.tab-caret')) {
+        return;
+    }
+    
+    // Close any open dropdowns when clicking anywhere else, 
+    // including on the main tab buttons (.tablinks) or the page content.
     document.querySelectorAll('.tab-dropdown.show').forEach(function(d){
         d.classList.remove('show');
-        var parentBtn = d.parentElement.querySelector('.tablinks');
+        // Find the specific toggle button (.tab-caret) for this dropdown and set aria-expanded to false
+        var parentItem = d.closest('.tab-item');
+        var parentBtn = parentItem.querySelector('.tab-caret');
         if (parentBtn) parentBtn.setAttribute('aria-expanded', 'false');
     });
 });
@@ -62,21 +77,35 @@ window.addEventListener('click', function(e){
 function openTabByName(tabName) {
     if (!tabName) return;
     var i, tabcontent, tablinks;
+    
+    // Hide all content
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
+    
+    // Remove active class from all tab buttons
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
+    // Show the requested content
     var el = document.getElementById(tabName);
     if (el) el.style.display = 'block';
 
-    // try to mark a tab button active if it matches the tabName (by label)
+    // try to mark a tab button active if it matches the tabName
+    // We check for an explicit tab button with that ID first, then by text content (label)
+    var explicitTab = document.querySelector('.tablinks[id="defaultOpen"]');
+    if (explicitTab && explicitTab.textContent.trim() === tabName) {
+        explicitTab.className += ' active';
+        return;
+    }
+
     for (i = 0; i < tablinks.length; i++) {
-        var label = tablinks[i].textContent.trim();
+        var labelEl = tablinks[i].querySelector('.tab-label');
+        var label = labelEl ? labelEl.textContent.trim() : tablinks[i].textContent.trim();
+        
         if (label === tabName) {
             tablinks[i].className += ' active';
             break;
@@ -87,7 +116,14 @@ function openTabByName(tabName) {
 // Called from dropdown menu items: opens the requested tabcontent and closes dropdowns
 function openTabFromMenu(event, tabName, el) {
     if (event) event.stopPropagation();
-    // close dropdowns
-    document.querySelectorAll('.tab-dropdown.show').forEach(function(d){ d.classList.remove('show'); });
+    
+    // close dropdowns and reset their aria-expanded state
+    document.querySelectorAll('.tab-dropdown.show').forEach(function(d){ 
+        d.classList.remove('show'); 
+        var parentItem = d.closest('.tab-item');
+        var parentBtn = parentItem.querySelector('.tab-caret');
+        if (parentBtn) parentBtn.setAttribute('aria-expanded', 'false');
+    });
+    
     openTabByName(tabName);
 }
