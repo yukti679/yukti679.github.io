@@ -1,26 +1,89 @@
 /* Tab styling */
 .tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /* allow dropdowns to overflow the tab bar */
+    overflow: visible;
+    border-bottom: 1px solid #ccc;
+    background-color: #2F4156;
+    position: sticky;
+    top: 0;
+    /* make the tab bar stack above content so dropdowns are clickable */
+    z-index: 10000;
 }
 
-.tab button {
-    background-color: inherit;
-    float: left;
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: #F5EFEB;
+}
+
+/* Import Roboto from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Apply specific fonts to elements */
+.site-header h1 {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.tab,
+.tab .tablinks,
+.tab-item .tab-label,
+.dropdown-content {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* header area behind the main site title */
+.site-header {
+    background-image: url('images/header-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5EFEB; /* fallback color */
+    padding: 400px 40px;
+    text-align: center;
+    border-top: 10px solid #567C8D;
+    border-bottom: 10px solid #567C8D;
+    position: relative;
+}
+
+/* Add overlay to ensure text readability */
+.site-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+    pointer-events: none;
+}
+
+/* typography: heading bold, tabs normal */
+.site-header h1 {
+    font-weight: 700;
+    font-size: 5rem;
+    margin: 0;
+    line-height: 1.2;
+    color: white; /* make text white for better contrast */
+    position: relative; /* ensures text appears above the overlay */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* adds subtle shadow for better readability */
+}
+
+.tab .tablinks {
+    background-color: transparent;
+    /* don't float general buttons (prevents caret from inheriting float)
+       visual spacing is handled on .tablinks specifically */
     border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    transition: 0.3s;
+    transition: 0.2s ease;
+    color: #ffffff; /* white text on dark tab bar */
+    font-weight: 400; /* Comfortaa 400 for tabs */
+    font-size: 16px;
 }
 
-.tab button:hover {
-    background-color: #ddd;
-}
-
-.tab button.active {
-    background-color: #ccc;
+.tab .tablinks:hover {
+    background-color: rgba(255,255,255,0.04);
 }
 
 .tabcontent {
@@ -28,4 +91,303 @@
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* Tab item wrapper so dropdown can be positioned relative to the button */
+.tab-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ensure labels for non-button tab items are visible on dark tab bar */
+.tab-item .tab-label {
+    color: #fff;
+    padding: 10px 14px;
+    font-weight: 400; /* match tab weight */
+    font-size: 16px;
+}
+
+/* make the tab button content align and allow a small caret inside */
+.tablinks {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+}
+
+.tab-caret {
+    background: transparent;
+    border: none;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.tab-caret {
+    color: #fff;
+}
+
+.tab-caret:focus {
+    outline: 2px solid #bbb;
+    border-radius: 4px;
+}
+
+.tab-caret:hover {
+    color: rgba(255,255,255,0.85);
+}
+
+/* Small dropdown attached to tab button */
+.tab-dropdown {
+    /* keep dropdown positioned absolutely but hidden via visibility/pointer-events
+       so background remains fully opaque while transform animates */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    top: calc(100% + 6px);
+    background: #2F4156;
+    background-clip: padding-box;
+    border: 1px solid #ddd;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    min-width: 140px;
+    z-index: 10001;
+    border-radius: 4px;
+    visibility: hidden;
+    pointer-events: none;
+    transform-origin: top center;
+    transition: transform 180ms ease;
+}
+
+.tab-dropdown a,
+.tab-dropdown button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    color: #fff;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 400; /* match tab weight */
+}
+
+/* Resume iframe styling */
+#Resumé {
+    .resume-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }
+    
+}
+
+#Resumé iframe {
+    background: white;
+    padding: 8px; /* thin white "border" */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    max-width: 1500px;
+    width: 100%;
+    height: auto; /* let content determine height */
+    margin: 0 auto; /* ensure iframe is horizontally centered */
+    display: block;
+}
+
+#Clubs {
+    .clubs-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+}
+
+#Volunteering {
+    .volunteering-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+}
+
+#Awards {
+    .awards-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+}
+
+#Certifications {
+    .certifications-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+}
+
+#Artwork {
+    .artwork-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+    .styled-image {
+        background: white;
+        padding: 8px; /* thin white "border" */
+        border-radius: 4px;
+        width: 99%;
+        height: 100%; /* let content determine height */
+    }
+}
+
+#Henna {
+    .henna-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+    .styled-image {
+        background: white;
+        padding: 8px; /* thin white "border" */
+        border-radius: 4px;
+        width: 99%;
+        height: 100%; /* let content determine height */
+    }
+}
+
+#Dance {
+    .dance-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+    .styled-image {
+        background: white;
+        padding: 10px; /* thin white "border" */
+        border-radius: 6px;
+        width: 99%;
+        height: 100%; /* let content determine height */
+    }
+}
+
+#Singing {
+    .singing-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+}
+
+#About {
+    .about-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+}
+
+#Contact {
+    .contact-header {
+       background-color: #567C8D;
+       background-size: cover;
+       color: #F5EFEB;
+       background-position: center;
+       background-repeat: no-repeat;
+       padding: 40px 40px;
+       border-bottom: 15px solid #F5EFEB;
+       border-top: 8px solid #F5EFEB;
+       text-align: center;
+       position: relative;
+    }   
+}
+
+.tab-dropdown a:hover,
+.tab-dropdown button:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+/* utility class to show dropdown */
+.tab-dropdown.show {
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(6px);
+}
+
+/* ensure tabcontent stays underneath */
+.tabcontent {
+    z-index: 1;
 }
