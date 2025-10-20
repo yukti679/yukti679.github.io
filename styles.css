@@ -189,6 +189,8 @@ body {
        position: relative;
     } 
     .floated-image {
+        background-repeat: no-repeat;
+        background-size: cover;
         background: #567C8D;
         float: left;
         margin-right: 20px;
@@ -198,6 +200,8 @@ body {
         height: 100px; /* let content determine height */
     } 
     .deca{
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-right: 10px;
         font-size: 1rem;
         color: #2F4156;
@@ -210,6 +214,8 @@ body {
         height: 140px;
     }  
     .food4good{
+        background-repeat: no-repeat;
+        background-size: cover;
        margin-top: 33px;
        margin-right: 10px;
        font-size: 1rem;
@@ -223,6 +229,8 @@ body {
        height: 130px;
     }
     .NHS {
+        background-repeat: no-repeat;
+        background-size: cover;
        margin-top: 33px;
        margin-right: 10px;
        font-size: 1rem;
@@ -236,6 +244,8 @@ body {
        height: 130px;
     }
     .tennis {
+        background-repeat: no-repeat;
+        background-size: cover;
        margin-top: 33px;
        margin-right: 10px;
        font-size: 1rem;
@@ -264,6 +274,8 @@ body {
        position: relative;
     }   
     .awards-list{
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-right: 10px;
         font-size: 1rem;
         color: #2F4156;
@@ -294,6 +306,8 @@ body {
        position: relative;
     }   
     .volunteering-list{
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-right: 10px;
         font-size: 1rem;
         color: #2F4156;
@@ -324,6 +338,8 @@ body {
        position: relative;
     }   
     .styled-image {
+        background-repeat: no-repeat;
+        background-size: cover;
         background: #567C8D;
         padding: 8px; /* thin white "border" */
         border-radius: 4px;
@@ -346,6 +362,8 @@ body {
        position: relative;
     }   
     .styled-image {
+        background-repeat: no-repeat;
+        background-size: cover;
         background: #567C8D;
         padding: 8px; /* thin white "border" */
         border-radius: 4px;
@@ -368,6 +386,8 @@ body {
        position: relative;
     }  
     .floated-image {
+        background-repeat: no-repeat;
+        background-size: cover;
         background: #567C8D;
         float: left;
         margin-right: 20px;
@@ -377,6 +397,8 @@ body {
         height: 37%; /* let content determine height */
     } 
     .dance-description {
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-left: 520px;
         margin-right: 10px;
         font-size: 1rem;
@@ -390,6 +412,8 @@ body {
         height: 100px;
     }
     .dance-why{
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-top: 33px;
         margin-left: 520px;
         margin-right: 10px;
@@ -405,6 +429,8 @@ body {
         height: 100px;
     }
     .dance-goals {
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-top: 33px;
         margin-left: 520px;
         margin-right: 10px;
@@ -435,6 +461,8 @@ body {
        position: relative;
     }   
     .floated-image {
+        background-repeat: no-repeat;
+        background-size: cover;
         background: #567C8D;
         padding: 10px;
         float: left;
@@ -444,6 +472,8 @@ body {
         height: 757px; /* let content determine height */
     } 
     .singing-description {
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-left: 520px;
         margin-right: 10px;
         font-size: 1rem;
@@ -457,6 +487,8 @@ body {
         height: 100px;
     }
     .chorus{
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-top: 33px;
         margin-left: 520px;
         margin-right: 10px;
@@ -472,6 +504,8 @@ body {
         height: 100px;
     }
     .singing-goals{
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-top: 33px;
         margin-left: 520px;
         margin-right: 10px;
@@ -502,6 +536,8 @@ body {
        position: relative;
     }   
     .about-description{
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-right: 10px;
         font-size: 1rem;
         color: #2F4156;
@@ -514,6 +550,8 @@ body {
         height: 580px;
     }
     .styled-image {
+        background-repeat: no-repeat;
+        background-size: cover;
         background: #567C8D;
         display: block;
         margin-left: 600px;
@@ -540,6 +578,8 @@ body {
        position: relative;
     }   
     .contact-description{
+        background-repeat: no-repeat;
+        background-size: cover;
         margin-right: 10px;
         font-size: 1rem;
         color: #2F4156;
