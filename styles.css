@@ -204,8 +204,7 @@ body {
 }
 
 .deca, .food4good, .NHS, .tennis,
-.awards-list, .volunteering-list,
-.about-description, .contact-description {
+.about-description{
     font-size: 1rem;
     color: #2F4156;
     border: 6px solid #567C8D;
@@ -227,11 +226,42 @@ body {
     width: auto;
     height: auto;
 }
-
-.awards-list ul, .volunteering-list ul {
-    padding-left: 20px;
+.awards-list {
+    font-size: 1rem;
+    color: #2F4156;
+    border: 6px solid #567C8D;
+    background-color: #C8D9E6;
+    padding: 20px;
+    padding-bottom: 4%;
+    margin: 20px 0;
+    width: auto;
+    height: 100%;
+    display: block;
 }
-
+.volunteering-list {
+    font-size: 1rem;
+    color: #2F4156;
+    border: 6px solid #567C8D;
+    background-color: #C8D9E6;
+    padding: 20px;
+    padding-bottom: 15%;
+    margin: 20px 0;
+    width: auto;
+    height: 100%;
+    display: block;
+}
+.contact-description{
+    font-size: 1rem;
+    color: #2F4156;
+    border: 6px solid #567C8D;
+    background-color: #C8D9E6;
+    padding: 20px;
+    padding-bottom: 34%;
+    margin: 20px 0;
+    width: auto;
+    height: 100%;
+    display: block;
+}
 .awards-list li, .volunteering-list li {
     margin-bottom: 10px;
 }
